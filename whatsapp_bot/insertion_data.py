@@ -43,7 +43,13 @@ def get_tasks_update(phone):
     conn.close()
     return tasks
 
-
+def get_tasks_update_status_data(phone):
+    conn = sqlite3.connect("user_data.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE task, SET status = 'Done' WHERE phone = ?", (phone,))
+    tasks = cursor.fetchall()
+    conn.close()
+    return tasks
 
 def add_task(phone, task):
     conn = sqlite3.connect("user_data.db")

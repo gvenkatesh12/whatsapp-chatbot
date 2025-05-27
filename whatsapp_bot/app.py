@@ -2,6 +2,7 @@ from flask import Flask, request
 import requests
 from insertion_data import *
 import logging
+import os
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(message)s')
 
@@ -204,4 +205,5 @@ def process_message(phone, message):
 if __name__ == "__main__":
     from db_setup import init_db
     init_db()
+    # app.run(port=5000, debug=True)
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
