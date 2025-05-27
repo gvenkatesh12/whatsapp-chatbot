@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(m
 app = Flask(__name__)
 
 VERIFY_TOKEN = 'mwi007'
-ACCESS_TOKEN = 'EAA7KdM6HllcBOyMpl16HfJ9TCwQIsDFWwvUNepTvSvNOqnFsfSv0jYJSpqO8qUc4pDjfaLmxdEe05GZCIWCXPKDGvmhAhZBKO5h8XnO7LB8wgKZAcgYuizC8BMZBtxIHhPbhOCQ5amrZAMZAsXI0znybBBU64mmeKPTVK3j9eABIUmNMZAgNZBdTvbhXCTLljYq9jDpzEdVjYIjLsMJ8MSehfl5kioJekdwjuQ6fIJ3J'
+ACCESS_TOKEN = 'EAA7KdM6HllcBO7JRU00XYqxG60rY5O6K3ITa2MiRy8jjM6sSxV2jaFSL8kUJHRVDfSlkRqfhoRij62HKzgWZBgJSwUkXruWqspjc2LW6CCywUS84fmpmjBAyJIDIBL6kSZB3YuebdC7vpi0IUiqRETUtwLr2UZCL8xzZBpNTZCWYlvOdnWT9liBy41juZBHJ9I3fBGPDmsHqeJvnexNIOx78kYWgxJC7rtmx9xzplSWUfzlhAZD'
 PHONE_NUMBER_ID = '683800431476069'
 
 
@@ -204,4 +204,4 @@ def process_message(phone, message):
 if __name__ == "__main__":
     from db_setup import init_db
     init_db()
-    app.run(port=5000, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
